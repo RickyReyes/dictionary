@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
+/* "A Modern CSS reset" */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* End "A Modern CSS reset" */
+ul {
+  list-style-type: none;
+}
+
+.App {
+  margin: 1.5rem;
+  overflow-x: hidden;
+}
+.App.mono {
+  font-family: "Inconsolata";
+}
+.App.sans-serif {
+  font-family: "Inter";
+}
+.App.serif {
+  font-family: "Lora";
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  margin-right: auto;
+}
+.header__font-modal-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  position: relative;
+  font-size: 1.125rem;
+}
+.header .divider {
+  width: 1px;
+  height: 32px;
+  background-color: #e9e9e9;
+  margin-inline: 1rem;
+}
+.header .font-modal {
+  z-index: 2;
+  display: none;
+  font-size: 1.125rem;
+}
+.header .font-modal__font.mono {
+  font-family: "Inconsolata";
+}
+.header .font-modal__font.sans-serif {
+  font-family: "Inter";
+}
+.header .font-modal__font.serif {
+  font-family: "Inconsolata";
+}
+.header .font-modal__font:hover {
+  color: #a445ed;
+}
+.header .font-modal.show {
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 0;
+  padding: 1.5rem;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  width: 183px;
+  background-color: #fff;
+}
+
+.display-mode {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.display-mode__pill {
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #757575;
+  padding: 3px;
+  cursor: pointer;
+}
+.display-mode__pill:hover, .display-mode__pill.dark-mode {
+  background-color: #a445ed;
+}
+.display-mode__pill__circle {
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border-radius: 100%;
+  margin-right: auto;
+}
+.display-mode__pill__circle.dark-mode {
+  margin-right: 0;
+  margin-left: auto;
+}
+.display-mode__moon.dark-mode {
+  filter: invert(32%) sepia(78%) saturate(1652%) hue-rotate(253deg) brightness(93%) contrast(99%);
+}
+
+.input-container {
+  position: relative;
+  margin-top: 51px;
+}
+
+.input {
+  padding: 1.5rem;
+  width: 100%;
+  font-size: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid #f4f4f4;
+  background-color: #f4f4f4;
+  font-weight: 700;
+  color: #2d2d2d;
+  cursor: pointer;
+}
+.input::-moz-placeholder {
+  opacity: 0.25;
+}
+.input::placeholder {
+  opacity: 0.25;
+}
+.input:focus, .input:hover {
+  outline: 0;
+  border: 1px solid #a445ed;
+}
+.input__icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.word {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.word__flex {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.word__word {
+  line-height: 2rem;
+  font-size: 2rem;
+}
+.word__phonetic {
+  color: purple;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+.word__play-icon {
+  cursor: pointer;
+}
+
+.meaning__part-of-speech {
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+.meaning__part-of-speech::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1rem);
+  transform: translateY(-50%);
+  width: 100vw;
+  height: 1px;
+  background-color: #e9e9e9;
+}
+.meaning__h2 {
+  font-weight: normal;
+  font-size: 1rem;
+  color: #757575;
+  margin-top: 2rem;
+}
+.meaning__h2.synonyms {
+  display: inline-block;
+}
+.meaning__definitions {
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8125rem;
+}
+.meaning__definition {
+  line-height: 25px;
+  color: #2d2d2d;
+}
+.meaning__definition span {
+  position: relative;
+  left: 0.75rem;
+}
+.meaning__synonyms {
+  display: inline-block;
+}/*# sourceMappingURL=style.css.map */
