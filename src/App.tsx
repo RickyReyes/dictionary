@@ -1,6 +1,7 @@
 import Header from "./layouts/Header/Header";
 import Input from "./layouts/Input/Input";
 import Word from "./Word";
+import Source from "./Source";
 import { useState } from "react";
 import Meaning from "./Meaning";
 
@@ -30,9 +31,10 @@ export interface IMeaning {
   antonyms: [];
   definitions: [
     {
-      definition: string;
-      synonyms: [];
       antonyms: [];
+      definition: string;
+      example?: string;
+      synonyms: [];
     }
   ];
   partOfSpeech: string;
@@ -57,6 +59,8 @@ function App() {
       {wordObj?.meanings.map((meaning) => (
         <Meaning meaning={meaning} />
       ))}
+      <hr></hr>
+      <Source wordObj={wordObj} />
     </main>
   );
 }

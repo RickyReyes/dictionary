@@ -8,6 +8,7 @@ $grey-100: #f4f4f4;
 $white: #fff;
 
 $purple: #a445ed;
+$dark-purple: #8f19e8;
 $orange: #ff5252;
 
 $base-font-size: 1.125rem;
@@ -102,7 +103,7 @@ ul {
 }
 
 .App {
-  margin: 1.5rem;
+  margin: 1.5rem 1.5rem 5.3125rem;
   overflow-x: hidden;
   &.mono {
     font-family: $mono;
@@ -247,7 +248,7 @@ ul {
     font-size: 2rem;
   }
   &__phonetic {
-    color: purple;
+    color: $purple;
     font-size: $base-font-size;
     font-weight: 400;
   }
@@ -292,12 +293,56 @@ ul {
   &__definition {
     line-height: 25px;
     color: $grey-500;
-    span {
+    &::marker {
+      color: $dark-purple;
+    }
+    &--span {
       position: relative;
       left: 0.75rem;
     }
+    &--example {
+      position: relative;
+      left: 0.75rem;
+      display: block;
+      color: $grey-300;
+      padding-top: 0.8125rem;
+      font-size: 0.9375rem;
+    }
   }
-  &__synonyms {
-    display: inline-block;
+  &__synonyms--ul {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  &__synonym {
+    cursor: pointer;
+    color: $purple;
+  }
+}
+
+hr {
+  border: 1px solid $grey-200;
+  margin-top: 2rem;
+}
+
+.source {
+  &__heading {
+    color: $grey-300;
+    font-weight: normal;
+    font-size: 0.875rem;
+    text-decoration: underline;
+  }
+  &__ul {
+    padding-left: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+  &__item {
+    color: $grey-500;
+    text-decoration: underline;
+    display: flex;
+    &__icon {
+      display: inline;
+      padding-left: 0.5625rem;
+    }
   }
 }

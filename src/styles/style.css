@@ -82,7 +82,7 @@ ul {
 }
 
 .App {
-  margin: 1.5rem;
+  margin: 1.5rem 1.5rem 5.3125rem;
   overflow-x: hidden;
 }
 .App.mono {
@@ -227,7 +227,7 @@ ul {
   font-size: 2rem;
 }
 .word__phonetic {
-  color: purple;
+  color: #a445ed;
   font-size: 1.125rem;
   font-weight: 400;
 }
@@ -270,10 +270,52 @@ ul {
   line-height: 25px;
   color: #2d2d2d;
 }
-.meaning__definition span {
+.meaning__definition::marker {
+  color: #8f19e8;
+}
+.meaning__definition--span {
   position: relative;
   left: 0.75rem;
 }
-.meaning__synonyms {
-  display: inline-block;
+.meaning__definition--example {
+  position: relative;
+  left: 0.75rem;
+  display: block;
+  color: #757575;
+  padding-top: 0.8125rem;
+  font-size: 0.9375rem;
+}
+.meaning__synonyms--ul {
+  display: inline-flex;
+  flex-direction: column;
+}
+.meaning__synonym {
+  cursor: pointer;
+  color: #a445ed;
+}
+
+hr {
+  border: 1px solid #e9e9e9;
+  margin-top: 2rem;
+}
+
+.source__heading {
+  color: #757575;
+  font-weight: normal;
+  font-size: 0.875rem;
+  text-decoration: underline;
+}
+.source__ul {
+  padding-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.source__item {
+  color: #2d2d2d;
+  text-decoration: underline;
+  display: flex;
+}
+.source__item__icon {
+  display: inline;
+  padding-left: 0.5625rem;
 }/*# sourceMappingURL=style.css.map */
