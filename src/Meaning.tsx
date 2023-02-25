@@ -6,14 +6,13 @@ interface MeaningProps {
 }
 const Meaning = ({ meaning }: MeaningProps) => {
   let { partOfSpeech, definitions, synonyms, antonyms } = meaning;
-  console.log(meaning);
   return (
     <section className="meaning">
-      <em className="meaning__part-of-speech">{partOfSpeech}</em>
-      <h2 className="meaning__h2">Meaning</h2>
+      <h2 className="meaning__part-of-speech">{partOfSpeech}</h2>
+      <h3 className="meaning__heading">Meaning</h3>
       <ul className="meaning__definitions">
         {definitions.map(({ definition, example }) => (
-          <li className="meaning__definition">
+          <li key={definition} className="meaning__definition">
             <span className="meaning__definition--span">{definition}</span>
             {example && (
               <div className="meaning__definition--example">
@@ -26,20 +25,24 @@ const Meaning = ({ meaning }: MeaningProps) => {
 
       {synonyms.length > 0 && (
         <section className="meaning__nyms">
-          <h2 className="meaning__h2 synonyms">Synonyms</h2>
+          <h3 className="meaning__heading synonyms">Synonyms</h3>
           <ul className="meaning__synonyms--ul">
             {synonyms.map((synonym) => (
-              <strong className="meaning__synonym">{synonym}</strong>
+              <strong key={synonym} className="meaning__synonym">
+                {synonym}
+              </strong>
             ))}
           </ul>
         </section>
       )}
       {antonyms.length > 0 && (
         <section className="meaning__nyms">
-          <h2 className="meaning__h2 synonyms">Antonyms</h2>
+          <h3 className="meaning__heading synonyms">Antonyms</h3>
           <ul className="meaning__synonyms--ul">
             {antonyms.map((antonym) => (
-              <strong className="meaning__synonym">{antonym}</strong>
+              <strong key={antonym} className="meaning__synonym">
+                {antonym}
+              </strong>
             ))}
           </ul>
         </section>

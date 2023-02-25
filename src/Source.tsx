@@ -9,12 +9,14 @@ const Source = ({ wordObj }: WordProps) => {
       <h3 className="source__heading">Source</h3>
       <ul className="source__ul">
         {wordObj?.sourceUrls.map((url: string) => (
-          <li className="source__item">
-            {url}
-            <img
-              className="source__item__icon"
-              src="/assets/images/icon-new-window.svg"
-            />
+          <li className="source__item" key={url}>
+            <a target="_blank" className="source__item__link" href={url}>
+              {url}
+              <img
+                className="source__item__icon"
+                src="/assets/images/icon-new-window.svg"
+              />
+            </a>
           </li>
         ))}
       </ul>

@@ -18,9 +18,9 @@ const FontModalButton = ({
   return (
     <div
       onClick={() => setShowFontModal((prev) => !prev)}
-      className="header__font-modal-btn"
+      className="font-modal-btn"
     >
-      <p className="header__font-modal-btn__font">{font}</p>
+      <p className="font-modal-btn__font">{font}</p>
       <img src={arrow} />
       <FontModal
         setFont={setFont}

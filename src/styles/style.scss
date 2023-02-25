@@ -13,9 +13,9 @@ $orange: #ff5252;
 
 $base-font-size: 1.125rem;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap");
 
 $sans-serif: "Inter";
 $serif: "Lora";
@@ -122,52 +122,56 @@ ul {
   &__logo {
     margin-right: auto;
   }
-  &__font-modal-btn {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    position: relative;
-    font-size: $base-font-size;
-  }
+
   .divider {
     width: 1px;
     height: 32px;
     background-color: $grey-200;
     margin-inline: 1rem;
   }
-  .font-modal {
-    z-index: 2;
-    display: none;
-    font-size: $base-font-size;
-    &__font {
-      &.mono {
-        font-family: $mono;
-      }
-      &.sans-serif {
-        font-family: $sans-serif;
-      }
-      &.serif {
-        font-family: $mono;
-      }
-      &:hover {
-        color: $purple;
-      }
+}
+
+.font-modal-btn {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.font-modal {
+  z-index: 2;
+  display: none;
+  font-size: $base-font-size;
+  &__font {
+    &.mono {
+      font-family: $mono;
     }
-    &.show {
-      display: block;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      padding: 0;
-      padding: 1.5rem;
-      box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
-      border-radius: 16px;
-      width: 183px;
-      background-color: $white;
+    &.sans-serif {
+      font-family: $sans-serif;
+    }
+    &.serif {
+      font-family: $mono;
+    }
+    &:hover {
+      color: $purple;
     }
   }
+  &.show {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 0;
+    padding: 1.5rem;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    width: 183px;
+    background-color: $white;
+  }
 }
+
 .display-mode {
   display: flex;
   align-items: center;
@@ -233,6 +237,11 @@ ul {
   }
 }
 
+.searching {
+  position: relative;
+  text-align: center;
+}
+
 .word {
   display: flex;
   justify-content: space-between;
@@ -261,6 +270,7 @@ ul {
   &__part-of-speech {
     display: inline-block;
     position: relative;
+    font-size: 1.125rem;
     font-weight: bold;
     margin-top: 2rem;
     &::after {
@@ -275,7 +285,7 @@ ul {
       background-color: $grey-200;
     }
   }
-  &__h2 {
+  &__heading {
     font-weight: normal;
     font-size: 1rem;
     color: $grey-300;
@@ -314,8 +324,8 @@ ul {
     flex-direction: column;
   }
   &__synonym {
-    cursor: pointer;
     color: $purple;
+    font-weight: 700;
   }
 }
 
@@ -325,6 +335,10 @@ hr {
 }
 
 .source {
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding-top: 1.5rem;
   &__heading {
     color: $grey-300;
     font-weight: normal;
@@ -333,16 +347,87 @@ hr {
   }
   &__ul {
     padding-left: 0;
-    margin-top: 0.5rem;
-    margin-bottom: 0;
+    margin: 0;
   }
   &__item {
     color: $grey-500;
     text-decoration: underline;
     display: flex;
+    &__link {
+      color: $grey-500;
+    }
     &__icon {
       display: inline;
       padding-left: 0.5625rem;
     }
+  }
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  &__emoji {
+    font-size: 4rem;
+    padding-top: 2rem;
+  }
+  &__heading {
+    font-size: 1.25rem;
+    color: $grey-500;
+    padding-block: 0 1rem;
+  }
+  &__p {
+    color: $grey-300;
+    font-size: 1.125rem;
+    max-width: 735px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .App {
+    margin: 3.625rem 2.5rem 7.875rem;
+  }
+  .font-modal {
+    font-size: 1.125rem;
+  }
+  .font-modal-btn {
+    font-size: 1.125rem;
+  }
+  .word {
+    margin-top: 2.625rem;
+    &__word {
+      font-size: 4rem;
+    }
+    &__phonetic {
+      padding-top: 1.5rem;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+  .meaning {
+    &__part-of-speech {
+      font-size: 1.5rem;
+    }
+  }
+  .meaning {
+    &__heading {
+      font-size: 1.25rem;
+    }
+    &__definition {
+      font-size: 1.125rem;
+      &--example {
+        font-size: 1.125rem;
+      }
+    }
+    &__synonym {
+      font-size: 1.25rem;
+    }
+  }
+
+  .source {
+    padding-top: 1.375rem;
+    gap: 25px;
   }
 }

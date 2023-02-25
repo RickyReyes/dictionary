@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&display=swap");
 /* "A Modern CSS reset" */
 /* Box sizing rules */
 *,
@@ -102,38 +102,40 @@ ul {
 .header__logo {
   margin-right: auto;
 }
-.header__font-modal-btn {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-  position: relative;
-  font-size: 1.125rem;
-}
 .header .divider {
   width: 1px;
   height: 32px;
   background-color: #e9e9e9;
   margin-inline: 1rem;
 }
-.header .font-modal {
+
+.font-modal-btn {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.font-modal {
   z-index: 2;
   display: none;
   font-size: 1.125rem;
 }
-.header .font-modal__font.mono {
+.font-modal__font.mono {
   font-family: "Inconsolata";
 }
-.header .font-modal__font.sans-serif {
+.font-modal__font.sans-serif {
   font-family: "Inter";
 }
-.header .font-modal__font.serif {
+.font-modal__font.serif {
   font-family: "Inconsolata";
 }
-.header .font-modal__font:hover {
+.font-modal__font:hover {
   color: #a445ed;
 }
-.header .font-modal.show {
+.font-modal.show {
   display: block;
   position: absolute;
   top: 100%;
@@ -211,6 +213,11 @@ ul {
   cursor: pointer;
 }
 
+.searching {
+  position: relative;
+  text-align: center;
+}
+
 .word {
   display: flex;
   justify-content: space-between;
@@ -238,6 +245,7 @@ ul {
 .meaning__part-of-speech {
   display: inline-block;
   position: relative;
+  font-size: 1.125rem;
   font-weight: bold;
   margin-top: 2rem;
 }
@@ -251,13 +259,13 @@ ul {
   height: 1px;
   background-color: #e9e9e9;
 }
-.meaning__h2 {
+.meaning__heading {
   font-weight: normal;
   font-size: 1rem;
   color: #757575;
   margin-top: 2rem;
 }
-.meaning__h2.synonyms {
+.meaning__heading.synonyms {
   display: inline-block;
 }
 .meaning__definitions {
@@ -290,8 +298,8 @@ ul {
   flex-direction: column;
 }
 .meaning__synonym {
-  cursor: pointer;
   color: #a445ed;
+  font-weight: 700;
 }
 
 hr {
@@ -299,6 +307,12 @@ hr {
   margin-top: 2rem;
 }
 
+.source {
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding-top: 1.5rem;
+}
 .source__heading {
   color: #757575;
   font-weight: normal;
@@ -307,15 +321,81 @@ hr {
 }
 .source__ul {
   padding-left: 0;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
+  margin: 0;
 }
 .source__item {
   color: #2d2d2d;
   text-decoration: underline;
   display: flex;
 }
+.source__item__link {
+  color: #2d2d2d;
+}
 .source__item__icon {
   display: inline;
   padding-left: 0.5625rem;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.not-found__emoji {
+  font-size: 4rem;
+  padding-top: 2rem;
+}
+.not-found__heading {
+  font-size: 1.25rem;
+  color: #2d2d2d;
+  padding-block: 0 1rem;
+}
+.not-found__p {
+  color: #757575;
+  font-size: 1.125rem;
+  max-width: 735px;
+  line-height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .App {
+    margin: 3.625rem 2.5rem 7.875rem;
+  }
+  .font-modal {
+    font-size: 1.125rem;
+  }
+  .font-modal-btn {
+    font-size: 1.125rem;
+  }
+  .word {
+    margin-top: 2.625rem;
+  }
+  .word__word {
+    font-size: 4rem;
+  }
+  .word__phonetic {
+    padding-top: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .meaning__part-of-speech {
+    font-size: 1.5rem;
+  }
+  .meaning__heading {
+    font-size: 1.25rem;
+  }
+  .meaning__definition {
+    font-size: 1.125rem;
+  }
+  .meaning__definition--example {
+    font-size: 1.125rem;
+  }
+  .meaning__synonym {
+    font-size: 1.25rem;
+  }
+  .source {
+    padding-top: 1.375rem;
+    gap: 25px;
+  }
 }/*# sourceMappingURL=style.css.map */

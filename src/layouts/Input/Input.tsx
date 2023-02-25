@@ -5,26 +5,31 @@ import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { IWord } from "../../App";
 interface Props {
   setWordObj: Dispatch<SetStateAction<IWord | null>>;
+  searching: boolean;
+  setSearching: Dispatch<SetStateAction<boolean>>;
+  inputValue: string;
+  setInputValue: Dispatch<SetStateAction<string>>;
 }
 
-const Input = ({ setWordObj }: Props) => {
-  const [inputValue, setInputValue] = useState<string>("");
-  const [searching, setSearching] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (searching && inputValue.length > 0) {
-      fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`)
-        .then((res) => res.json())
-        .then((data) => setWordObj(data[0]))
-        .catch((error) => console.log(error));
-    }
-  }, [searching]);
-
+const Input = ({
+  setWordObj,
+  searching,
+  setSearching,
+  inputValue,
+  setInputValue,
+}: Props) => {
   return (
     <div className="input-container">
       <input
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={(e) => {
+          setInputValue(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            setSearching(true);
+          }
+        }}
         className="input"
         placeholder="Search for any word..."
       />
@@ -32,7 +37,7 @@ const Input = ({ setWordObj }: Props) => {
         className="input__icon"
         src={magnifyingGlass}
         alt="magnifying glass icon"
-        onClick={() => setSearching((prev) => !prev)}
+        onClick={() => setSearching(true)}
       />
     </div>
   );
