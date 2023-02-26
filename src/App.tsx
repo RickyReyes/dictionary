@@ -73,9 +73,10 @@ function App() {
     }
   }, [searching]);
 
-  const { theme } = useContext<IThemeContext>(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <main className={"App " + font}>
+    <main className={`App ${font} ${theme}`}>
       <Header
         font={font}
         setFont={setFont}
@@ -89,8 +90,8 @@ function App() {
         setInputValue={setInputValue}
         setWordObj={setWordObj}
       />
-      {searching && !wordObj && <p className="searching">Searching...</p>}
-      {notFound && <NotFound />}
+      {!wordObj && notFound && <NotFound />}
+
       {wordObj && (
         <>
           <Word wordObj={wordObj} />

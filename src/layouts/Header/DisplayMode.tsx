@@ -1,23 +1,20 @@
 import moon from "/assets/images/icon-moon.svg";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../../themeContext";
 
 const DisplayMode = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <div className="display-mode">
+    <div className={`display-mode ${theme}`}>
       <div
-        className={`display-mode__pill ${darkMode ? "dark-mode" : ""}`}
-        onClick={() => setDarkMode((prev) => !prev)}
+        className={`display-mode__pill ${theme}`}
+        onClick={() => toggleTheme()}
       >
-        <div
-          className={`display-mode__pill__circle ${
-            darkMode ? "dark-mode" : ""
-          }`}
-        ></div>
+        <div className={`display-mode__pill__circle ${theme}`}></div>
       </div>
       <img
-        className={`display-mode__moon ${darkMode ? "dark-mode" : ""}`}
+        className={`display-mode__moon ${theme}`}
         src={moon}
         alt="moon icon"
       />

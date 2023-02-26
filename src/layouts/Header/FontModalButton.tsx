@@ -1,6 +1,8 @@
 import FontModal from "./FontModal";
 import arrow from "/assets/images/icon-arrow-down.svg";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
+
+import { ThemeContext } from "../../themeContext";
 
 interface Props {
   font: string;
@@ -15,18 +17,15 @@ const FontModalButton = ({
   showFontModal,
   setShowFontModal,
 }: Props) => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <div
       onClick={() => setShowFontModal((prev) => !prev)}
       className="font-modal-btn"
     >
-      <p className="font-modal-btn__font">{font}</p>
+      <p className={`font-modal-btn__font ${theme}`}>{font}</p>
       <img src={arrow} />
-      <FontModal
-        setFont={setFont}
-        showFontModal={showFontModal}
-        setShowFontModal={setShowFontModal}
-      />
+      {showFontModal && <FontModal setFont={setFont} />}
     </div>
   );
 };

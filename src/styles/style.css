@@ -82,7 +82,7 @@ ul {
 }
 
 .App {
-  margin: 1.5rem 1.5rem 5.3125rem;
+  padding: 1.5rem 1.5rem 5.3125rem;
   overflow-x: hidden;
 }
 .App.mono {
@@ -122,6 +122,16 @@ ul {
   z-index: 2;
   display: none;
   font-size: 1.125rem;
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 0;
+  padding: 1.5rem;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  width: 183px;
+  background-color: #fff;
 }
 .font-modal__font.mono {
   font-family: "Inconsolata";
@@ -134,18 +144,6 @@ ul {
 }
 .font-modal__font:hover {
   color: #a445ed;
-}
-.font-modal.show {
-  display: block;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  padding: 0;
-  padding: 1.5rem;
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  width: 183px;
-  background-color: #fff;
 }
 
 .display-mode {
@@ -161,7 +159,7 @@ ul {
   padding: 3px;
   cursor: pointer;
 }
-.display-mode__pill:hover, .display-mode__pill.dark-mode {
+.display-mode__pill:hover, .display-mode__pill.dark {
   background-color: #a445ed;
 }
 .display-mode__pill__circle {
@@ -171,11 +169,11 @@ ul {
   border-radius: 100%;
   margin-right: auto;
 }
-.display-mode__pill__circle.dark-mode {
+.display-mode__pill__circle.dark {
   margin-right: 0;
   margin-left: auto;
 }
-.display-mode__moon.dark-mode {
+.display-mode__moon.dark {
   filter: invert(32%) sepia(78%) saturate(1652%) hue-rotate(253deg) brightness(93%) contrast(99%);
 }
 
@@ -360,7 +358,7 @@ hr {
 
 @media screen and (min-width: 768px) {
   .App {
-    margin: 3.625rem 2.5rem 7.875rem;
+    padding: 3.625rem 2.5rem 7.875rem;
   }
   .font-modal {
     font-size: 1.125rem;
@@ -398,4 +396,48 @@ hr {
     padding-top: 1.375rem;
     gap: 25px;
   }
+}
+/* DARK MODE */
+.App.dark {
+  background-color: black;
+  color: white;
+}
+
+.display-mode.dark {
+  color: #fff;
+}
+
+.font-modal-btn__font.dark {
+  color: #fff;
+}
+
+.font-modal.dark {
+  background-color: #1f1f1f;
+  color: #fff;
+  box-shadow: 0px 5px 30px #a445ed;
+}
+
+.input.dark {
+  background-color: #1f1f1f;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.input.dark::-moz-placeholder {
+  opacity: 0.25;
+}
+.input.dark::placeholder {
+  opacity: 0.25;
+}
+.input.dark:focus, .input.dark:hover {
+  border: 1px solid #a445ed;
+}
+
+.word__play-icon.dark {
+  background-color: #a445ed;
+  border-radius: 100%;
+}
+
+.meaning__definition.dark {
+  color: white;
 }/*# sourceMappingURL=style.css.map */

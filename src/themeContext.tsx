@@ -1,15 +1,25 @@
 import { createContext, useState } from "react";
 
 export interface IThemeContext {
-  theme: "light" | "dark";
+  theme: string;
+  toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<IThemeContext>({ theme: "light" });
+const ThemeContext = createContext<IThemeContext>({
+  theme: "light",
+  toggleTheme: () => null,
+});
 
 const ThemeContextProvider = (props: any) => {
-  const [theme, setTheme] = useState<IThemeContext>({ theme: "light" });
+  const [theme, setTheme] = useState<string>("light");
+
+  function toggleTheme() {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+    console.log(theme);
+  }
+
   return (
-    <ThemeContext.Provider value={theme}>
+    <ThemeContext.Provider value={{ theme: theme, toggleTheme }}>
       {props?.children}
     </ThemeContext.Provider>
   );

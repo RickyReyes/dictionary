@@ -1,10 +1,12 @@
-import React from "react";
+import { useContext } from "react";
 import { IMeaning } from "./App";
+import { ThemeContext } from "./themeContext";
 
 interface MeaningProps {
   meaning: IMeaning;
 }
 const Meaning = ({ meaning }: MeaningProps) => {
+  const { theme } = useContext(ThemeContext);
   let { partOfSpeech, definitions, synonyms, antonyms } = meaning;
   return (
     <section className="meaning">
@@ -12,7 +14,7 @@ const Meaning = ({ meaning }: MeaningProps) => {
       <h3 className="meaning__heading">Meaning</h3>
       <ul className="meaning__definitions">
         {definitions.map(({ definition, example }) => (
-          <li key={definition} className="meaning__definition">
+          <li key={definition} className={`meaning__definition ${theme}`}>
             <span className="meaning__definition--span">{definition}</span>
             {example && (
               <div className="meaning__definition--example">

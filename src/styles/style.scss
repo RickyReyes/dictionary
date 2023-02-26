@@ -103,7 +103,7 @@ ul {
 }
 
 .App {
-  margin: 1.5rem 1.5rem 5.3125rem;
+  padding: 1.5rem 1.5rem 5.3125rem;
   overflow-x: hidden;
   &.mono {
     font-family: $mono;
@@ -144,6 +144,16 @@ ul {
   z-index: 2;
   display: none;
   font-size: $base-font-size;
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 0;
+  padding: 1.5rem;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  width: 183px;
+  background-color: $white;
   &__font {
     &.mono {
       font-family: $mono;
@@ -157,18 +167,6 @@ ul {
     &:hover {
       color: $purple;
     }
-  }
-  &.show {
-    display: block;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    padding: 0;
-    padding: 1.5rem;
-    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    width: 183px;
-    background-color: $white;
   }
 }
 
@@ -184,7 +182,7 @@ ul {
     padding: 3px;
     cursor: pointer;
     &:hover,
-    &.dark-mode {
+    &.dark {
       background-color: $purple;
     }
     &__circle {
@@ -193,13 +191,13 @@ ul {
       background-color: $white;
       border-radius: 100%;
       margin-right: auto;
-      &.dark-mode {
+      &.dark {
         margin-right: 0;
         margin-left: auto;
       }
     }
   }
-  &__moon.dark-mode {
+  &__moon.dark {
     filter: invert(32%) sepia(78%) saturate(1652%) hue-rotate(253deg)
       brightness(93%) contrast(99%);
   }
@@ -387,7 +385,7 @@ hr {
 
 @media screen and (min-width: 768px) {
   .App {
-    margin: 3.625rem 2.5rem 7.875rem;
+    padding: 3.625rem 2.5rem 7.875rem;
   }
   .font-modal {
     font-size: 1.125rem;
@@ -429,5 +427,54 @@ hr {
   .source {
     padding-top: 1.375rem;
     gap: 25px;
+  }
+}
+
+/* DARK MODE */
+
+.App.dark {
+  background-color: black;
+  color: white;
+}
+.display-mode.dark {
+  color: $white;
+}
+
+.font-modal-btn {
+  &__font.dark {
+    color: $white;
+  }
+}
+
+.font-modal.dark {
+  background-color: $grey-600;
+  color: $white;
+  box-shadow: 0px 5px 30px $purple;
+}
+
+.input.dark {
+  background-color: $grey-600;
+  color: $white;
+  cursor: pointer;
+  border: 1px solid black;
+  &::placeholder {
+    opacity: 0.25;
+  }
+  &:focus,
+  &:hover {
+    border: 1px solid $purple;
+  }
+}
+
+.word {
+  &__play-icon.dark {
+    background-color: $purple;
+    border-radius: 100%;
+  }
+}
+
+.meaning {
+  &__definition.dark {
+    color: white;
   }
 }

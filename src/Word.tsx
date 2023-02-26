@@ -1,10 +1,14 @@
+import { useContext } from "react";
+
 import { IWord } from "./App";
+import { ThemeContext } from "./themeContext";
 
 interface WordProps {
   wordObj: IWord | null;
 }
 
 const Word = ({ wordObj }: WordProps) => {
+  const { theme } = useContext(ThemeContext);
   let audio: HTMLAudioElement;
   if (wordObj?.phonetics) {
     for (let obj of wordObj?.phonetics) {
@@ -22,7 +26,7 @@ const Word = ({ wordObj }: WordProps) => {
 
       <img
         onClick={() => audio?.play()}
-        className="word__play-icon"
+        className={`word__play-icon ${theme}`}
         src="/assets/images/icon-play.svg"
         alt="play icon"
       />

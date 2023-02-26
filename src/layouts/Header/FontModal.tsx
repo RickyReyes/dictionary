@@ -1,14 +1,15 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
+
+import { ThemeContext } from "../../themeContext";
 
 interface Props {
   setFont: Dispatch<SetStateAction<string>>;
-  showFontModal: boolean;
-  setShowFontModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const FontModal = ({ setFont, showFontModal, setShowFontModal }: Props) => {
+const FontModal = ({ setFont }: Props) => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <ul className={`font-modal ${showFontModal ? "show" : " "}`}>
+    <ul className={`font-modal ${theme}`}>
       <li
         className="font-modal__font sans-serif"
         onClick={() => setFont("sans-serif")}
