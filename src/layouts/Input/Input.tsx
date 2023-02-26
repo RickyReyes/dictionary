@@ -1,8 +1,9 @@
 import magnifyingGlass from "/assets/images/icon-search.svg";
 
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 
 import { IWord } from "../../App";
+import { ThemeContext } from "../../themeContext";
 interface Props {
   setWordObj: Dispatch<SetStateAction<IWord | null>>;
   searching: boolean;
@@ -11,13 +12,8 @@ interface Props {
   setInputValue: Dispatch<SetStateAction<string>>;
 }
 
-const Input = ({
-  setWordObj,
-  searching,
-  setSearching,
-  inputValue,
-  setInputValue,
-}: Props) => {
+const Input = ({ setSearching, inputValue, setInputValue }: Props) => {
+  const { theme } = useContext(ThemeContext);
   return (
     <div className="input-container">
       <input
@@ -30,7 +26,7 @@ const Input = ({
             setSearching(true);
           }
         }}
-        className="input"
+        className={`input ${theme}`}
         placeholder="Search for any word..."
       />
       <img
