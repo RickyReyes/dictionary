@@ -105,6 +105,7 @@ ul {
 .App {
   padding: 1.5rem 1.5rem 5.3125rem;
   overflow-x: hidden;
+  min-height: 100vh;
   &.mono {
     font-family: $mono;
   }
@@ -265,23 +266,21 @@ ul {
 }
 
 .meaning {
+  &__pos-hr-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 21px;
+    margin-top: 2rem;
+  }
   &__part-of-speech {
     display: inline-block;
-    position: relative;
     font-size: 1.125rem;
     font-weight: bold;
-    margin-top: 2rem;
-    &::after {
-      // horizontal divider
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: calc(100% + 1rem);
-      transform: translateY(-50%);
-      width: 100vw;
-      height: 1px;
-      background-color: $grey-200;
-    }
+  }
+  &__hr {
+    flex: 1;
+    border: 1px solid $grey-200;
   }
   &__heading {
     font-weight: normal;
@@ -324,10 +323,11 @@ ul {
   &__synonym {
     color: $purple;
     font-weight: 700;
+    cursor: pointer;
   }
 }
 
-hr {
+.hr {
   border: 1px solid $grey-200;
   margin-top: 2rem;
 }
@@ -383,7 +383,7 @@ hr {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 668px) {
   .App {
     padding: 3.625rem 2.5rem 7.875rem;
   }
@@ -404,12 +404,15 @@ hr {
       line-height: 1.5rem;
     }
   }
+
   .meaning {
+    &__pos-hr-flex {
+      gap: 32px;
+    }
     &__part-of-speech {
       font-size: 1.5rem;
     }
-  }
-  .meaning {
+
     &__heading {
       font-size: 1.25rem;
     }
@@ -427,6 +430,14 @@ hr {
   .source {
     padding-top: 1.375rem;
     gap: 25px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1000px) {
+  .container {
+    max-width: 736px;
+    margin: 0 auto;
   }
 }
 
@@ -467,6 +478,22 @@ hr {
 }
 
 .word {
+  &__play-icon-container.dark {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      border-top: 10.5px solid transparent;
+      border-bottom: 10.5px solid transparent;
+      border-left: 21px solid #fff;
+      cursor: pointer;
+      pointer-events: none;
+    }
+  }
   &__play-icon.dark {
     background-color: $purple;
     border-radius: 100%;
@@ -475,6 +502,17 @@ hr {
 
 .meaning {
   &__definition.dark {
-    color: white;
+    color: $white;
   }
+}
+.hr.dark {
+  border-color: $grey-400;
+}
+
+.source__item__link.dark {
+  color: $white;
+}
+
+.not-found__heading.dark {
+  color: $white;
 }

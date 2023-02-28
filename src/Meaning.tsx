@@ -1,16 +1,25 @@
-import { useContext } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { IMeaning } from "./App";
 import { ThemeContext } from "./themeContext";
 
 interface MeaningProps {
   meaning: IMeaning;
+  setInputValue: Dispatch<SetStateAction<string>>;
+  setSearching: Dispatch<SetStateAction<boolean>>;
 }
-const Meaning = ({ meaning }: MeaningProps) => {
+const Meaning = ({ meaning, setInputValue, setSearching }: MeaningProps) => {
   const { theme } = useContext(ThemeContext);
   let { partOfSpeech, definitions, synonyms, antonyms } = meaning;
+  function handleSynonymAntonym(word: string) {
+    setInputValue(word);
+    setSearching(true);
+  }
   return (
     <section className="meaning">
-      <h2 className="meaning__part-of-speech">{partOfSpeech}</h2>
+      <div className="meaning__pos-hr-flex">
+        <h2 className="meaning__part-of-speech">{partOfSpeech}</h2>
+        <hr className="meaning__hr"></hr>
+      </div>
       <h3 className="meaning__heading">Meaning</h3>
       <ul className="meaning__definitions">
         {definitions.map(({ definition, example }) => (
@@ -30,7 +39,11 @@ const Meaning = ({ meaning }: MeaningProps) => {
           <h3 className="meaning__heading synonyms">Synonyms</h3>
           <ul className="meaning__synonyms--ul">
             {synonyms.map((synonym) => (
-              <strong key={synonym} className="meaning__synonym">
+              <strong
+                onClick={() => handleSynonymAntonym(synonym)}
+                key={synonym}
+                className="meaning__synonym"
+              >
                 {synonym}
               </strong>
             ))}
@@ -42,7 +55,11 @@ const Meaning = ({ meaning }: MeaningProps) => {
           <h3 className="meaning__heading synonyms">Antonyms</h3>
           <ul className="meaning__synonyms--ul">
             {antonyms.map((antonym) => (
-              <strong key={antonym} className="meaning__synonym">
+              <strong
+                onClick={() => handleSynonymAntonym(antonym)}
+                key={antonym}
+                className="meaning__synonym"
+              >
                 {antonym}
               </strong>
             ))}

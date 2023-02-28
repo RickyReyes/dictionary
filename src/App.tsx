@@ -77,31 +77,38 @@ function App() {
 
   return (
     <main className={`App ${font} ${theme}`}>
-      <Header
-        font={font}
-        setFont={setFont}
-        showFontModal={showFontModal}
-        setShowFontModal={setShowFontModal}
-      />
-      <Input
-        searching={searching}
-        setSearching={setSearching}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        setWordObj={setWordObj}
-      />
-      {!wordObj && notFound && <NotFound />}
-
-      {wordObj && (
-        <>
-          <Word wordObj={wordObj} />
-          {wordObj?.meanings.map((meaning) => (
-            <Meaning meaning={meaning} />
-          ))}
-          <hr></hr>
-          <Source wordObj={wordObj} />
-        </>
-      )}
+      <div className="container">
+        <Header
+          font={font}
+          setFont={setFont}
+          showFontModal={showFontModal}
+          setShowFontModal={setShowFontModal}
+        />
+        <Input
+          searching={searching}
+          setSearching={setSearching}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          setWordObj={setWordObj}
+        />
+        {notFound && <NotFound />}
+        {wordObj && !notFound && (
+          <>
+            <Word wordObj={wordObj} />
+            {wordObj?.meanings.map((meaning) => (
+              <div>
+                <Meaning
+                  meaning={meaning}
+                  setInputValue={setInputValue}
+                  setSearching={setSearching}
+                />
+              </div>
+            ))}
+            <hr className={`hr ${theme}`}></hr>
+            <Source wordObj={wordObj} />
+          </>
+        )}
+      </div>
     </main>
   );
 }

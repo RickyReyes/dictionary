@@ -24,12 +24,14 @@ const Word = ({ wordObj }: WordProps) => {
         <small className="word__phonetic">{wordObj?.phonetic}</small>
       </div>
 
-      <img
-        onClick={() => audio?.play()}
-        className={`word__play-icon ${theme}`}
-        src="/assets/images/icon-play.svg"
-        alt="play icon"
-      />
+      <div className={`word__play-icon-container ${theme}`}>
+        <img
+          onClick={() => audio?.play()}
+          className={`word__play-icon ${theme}`}
+          src="/assets/images/icon-play.svg"
+          alt="play icon"
+        />
+      </div>
     </section>
   );
 };
