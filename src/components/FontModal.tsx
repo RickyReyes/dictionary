@@ -7,7 +7,7 @@ import {
   RefObject,
 } from "react";
 
-import { ThemeContext } from "../../themeContext";
+import { ThemeContext } from "../themeContext";
 
 interface FontModalProps {
   setFont: Dispatch<SetStateAction<string>>;
@@ -27,7 +27,7 @@ const FontModal = ({ setFont, setShowFontModal }: FontModalProps) => {
     useEffect(() => {
       let handler = (e: MouseEvent) => {
         const target = e.target as Element;
-        console.log(target.classList);
+        target.classList;
         if (target && target.classList.contains(nameOfClass)) {
           toggleFunc(true);
         } else if (ref.current && !ref.current.contains(target)) {

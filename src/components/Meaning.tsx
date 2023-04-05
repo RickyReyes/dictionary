@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useContext } from "react";
-import { IMeaning } from "./App";
-import { ThemeContext } from "./themeContext";
+import { IMeaning } from "../App";
+import { ThemeContext } from "../themeContext";
 
 interface MeaningProps {
   meaning: IMeaning;

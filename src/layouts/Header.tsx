@@ -1,7 +1,7 @@
 import logo from "/assets/images/logo.svg";
 
-import FontModalButton from "./FontModalButton";
-import DisplayMode from "./DisplayMode";
+import FontModalButton from "../components/FontModalButton";
+import DisplayMode from "../components/DisplayMode";
 import { Dispatch, SetStateAction } from "react";
 
 interface Props {

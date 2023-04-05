@@ -1,9 +1,9 @@
-import Header from "./layouts/Header/Header";
-import Input from "./layouts/Input/Input";
-import Word from "./Word";
+import Header from "./layouts/Header";
+import Input from "./layouts/Input";
+import Word from "./components/Word";
 import Source from "./Source";
 import { useState, useEffect, useContext } from "react";
-import Meaning from "./Meaning";
+import Meaning from "./components/Meaning";
 import NotFound from "./NotFound";
 import { ThemeContext, IThemeContext } from "./themeContext";
 

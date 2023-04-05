@@ -15,7 +15,6 @@ const ThemeContextProvider = (props: any) => {
 
   function toggleTheme() {
     theme === "light" ? setTheme("dark") : setTheme("light");
-    console.log(theme);
   }
 
   return (

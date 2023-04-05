@@ -2,7 +2,7 @@ import FontModal from "./FontModal";
 import arrow from "/assets/images/icon-arrow-down.svg";
 import { Dispatch, SetStateAction, useContext } from "react";
 
-import { ThemeContext } from "../../themeContext";
+import { ThemeContext } from "../themeContext";
 
 interface Props {
   font: string;

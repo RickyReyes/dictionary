@@ -1,7 +1,7 @@
 import moon from "/assets/images/icon-moon.svg";
 
 import { useContext, useState } from "react";
-import { ThemeContext } from "../../themeContext";
+import { ThemeContext } from "../themeContext";
 
 const DisplayMode = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);

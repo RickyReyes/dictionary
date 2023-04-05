@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import { IWord } from "./App";
-import { ThemeContext } from "./themeContext";
+import { IWord } from "../App";
+import { ThemeContext } from "../themeContext";
 
 interface WordProps {
   wordObj: IWord | null;

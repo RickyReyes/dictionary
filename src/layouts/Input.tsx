@@ -2,8 +2,8 @@ import magnifyingGlass from "/assets/images/icon-search.svg";
 
 import { Dispatch, SetStateAction, useContext } from "react";
 
-import { IWord } from "../../App";
-import { ThemeContext } from "../../themeContext";
+import { IWord } from "../App";
+import { ThemeContext } from "../themeContext";
 interface Props {
   setWordObj: Dispatch<SetStateAction<IWord | null>>;
   searching: boolean;
